@@ -11,7 +11,7 @@ app.post("/",function(req, res){
     MongoClient.connect(url, function(err,db){
         if (err) throw err;
         var dbo = db.db("generator");
-        dbo.collection("students").insertOne(req.body);
+        dbo.collection("students").deletetOne(req.body);
     
         
     })
@@ -19,6 +19,23 @@ app.post("/",function(req, res){
 
 }
 )
+
+app.delete("/delete/:name",function(req, res){
+
+    //console.log(req.body);
+    
+        MongoClient.connect(url, function(err,db){
+            if (err) throw err;
+            var dbo = db.db("generator");
+            dbo.collection("students").deleteOne({name: req.params.name});
+            console.log(req.param.name);
+        
+            
+        })
+        res.send('delete')
+    
+    }
+    )
 
 
 
