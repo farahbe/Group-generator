@@ -4,25 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Students</title>
-  <link rel="stylesheet" href="">
+  <link type="text/css" rel="stylesheet" href="../public/style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+  </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+  </style>
 </head>
 <body>
   <header>
     <nav>
-      <ul>
-        <li>Gorup Generatorr</li>
-        <li><a href="">Students</a></li>
-        <li><a href="">Gorups</a></li>  
-      </ul>
+        <h4>Gorup Generatorr</h4>
+        <ul>
+          <a href="/students">Students</a>
+          <a href="/groups">Gorups</a>  
+        </ul>  
     </nav>
   </header>
   <main>
-    <h1>List of Students</h1>
-    <ul></ul>
-    <form action="">
+    <section id="Generator">
+      <h3>List of Students</h3>
+      <ul>
+       
+      </ul>       
+   </section> 
+    <!-- <form action="/">
       <input type="text" name="sname" placeholder="Name">
       <input type="submit" value="Add">
-    </form>
+    </form> -->
+
+    <section id="Form">
+      <form action="/student" method="POST" class="form-example">
+        <div class="form-example">
+          <input type="text" name="text" id="text" required placeholder="Name">
+          <input type="submit" value="Add">
+        </div>
+      </form>
+    </section>
   </main>
 </body>
 </html>
