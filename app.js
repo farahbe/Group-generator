@@ -30,9 +30,7 @@ app.get("/students",function(req, res){
                 if (err) throw err
                 res.send(result)
 
-            });
-        
-            
+            });   
         })
     
     }
@@ -59,42 +57,39 @@ app.delete("/students/:name",function(req, res){
 
 async function Group(){
 
-    const client = new MongoClient(url)
-    try{
+    const client = new MongoClient(url,{ useUnifiedTopology: true })
+    try{    
         await client.connect()
         const db = client.db('generator')
         const groups = await db.collection('groups')
+
+        app.post("/groups", async function(req,res) {
+           groups.insertOne(req.body)
+            res.send()
+            
+        })
         
-        return groups
+        app.get("/groups", async function(req,res) {
+            var trouve = await groups.find().toArray()
+            res.send(trouve)   
+        })
+        
+        app.get("/groups/:name",async function(req,res){
+            var trouveall = awaitgroups.find({name: req.params.name}).toArray()
+            res.send(trouveall)
+        })
+        
+        app.delete("/groups/:name",async function(req,res){
+             awaitgroups.deleteMany({name: req.params.name})
+            res.send()
+        })
+        
     }
     catch  (error) {console.log(error)}
 
+
 }
 
-
-app.post("/groups", async function(req,res) {
-    var collectiongroup = await Group()
-    collectiongroup.insertOne(req.body)
-
-    res.send()
-    
-})
-
-app.get("/groups", async function(req,res) {
-    var collectiongroup = await Group()
-    var trouve = await collectiongroup.find().toArray()
-    res.send(trouve)
-    
-})
-
-app.delete("/groups/:name",async function(req,res){
-    var collectiongroup = await Group()
-     await collectiongroup.deleteMany({name: req.params.name})
-    res.send()
-
-})
-
-
-
+Group()
 
 app.listen(8080);

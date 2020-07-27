@@ -1,0 +1,167 @@
+body {
+  background-color: #120F17;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body h1 {
+  font-family: 'Satisfy', cursive;
+}
+
+header nav {
+  height: 100px;
+  width: 1250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav a {
+  color: whitesmoke;
+}
+
+header nav h4 {
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+main {
+  background-image: url(./green-4648611_1920.jpg);
+  min-width: 1000px;
+  min-height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 20px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+main #container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main #Generator {
+  width: 400px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  float: left;
+  background-color: #027368;
+  border-radius: 3px;
+  margin: 20px;
+}
+
+main #Generator li {
+  width: 300px;
+  height: 20px;
+  background-color: whitesmoke;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+main #Assignator {
+  width: 400px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  float: right;
+  background-color: #027368;
+  border-radius: 3px;
+  margin: 20px;
+}
+
+main #Assignator li {
+  width: 300px;
+  height: 20px;
+  background-color: whitesmoke;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+main #Form {
+  width: 50vw;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main #Form .form-example {
+  width: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main #Form .form-example input {
+  border-radius: 5px;
+  padding: 3%;
+  text-align: center;
+}
+
+main #Form .form-example input[type=submit] {
+  background-color: #A61F12;
+  color: whitesmoke;
+  font-family: 'Julius Sans One', sans-serif;
+}
+/*# sourceMappingURL=style.css.map */
