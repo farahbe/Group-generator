@@ -93,12 +93,18 @@ main #Generator {
   margin: 20px;
 }
 
+main #Generator ul {
+  overflow-y: scroll;
+  list-style: none;
+}
+
 main #Generator li {
   width: 300px;
   height: 20px;
   background-color: whitesmoke;
   margin-top: 10px;
   border-radius: 5px;
+  color: #120F17;
 }
 
 main #Assignator {
@@ -121,12 +127,18 @@ main #Assignator {
   margin: 20px;
 }
 
+main #Assignator ul {
+  overflow-y: scroll;
+  list-style: none;
+}
+
 main #Assignator li {
   width: 300px;
   height: 20px;
   background-color: whitesmoke;
   margin-top: 10px;
   border-radius: 5px;
+  color: #120F17;
 }
 
 main #Form {

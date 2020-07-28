@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students</title>
+  <link type="text/css" rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+  </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+        <h4>Gorup Generatorr</h4>
+        <ul>
+          <a href="/students">Students</a>
+          <a href="/groups">Gorups</a>  
+        </ul>  
+    </nav>
+  </header>
+  <main>
+    <section id="Generator">
+      <h3>List of Students</h3>
+      <ul>
+        <% data.forEach(function(object){ %>
+          <li><%= object.name %></li>
+        <% }) %>
+       
+      </ul>       
+   </section> 
+   
+    <section id="Form">
+      <form action="/students" method="POST" class="form-example">
+        <div class="form-example">
+          <input type="text" name="name" id="text" required placeholder="Name">
+          <input type="submit" value="Add">
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

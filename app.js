@@ -1,8 +1,11 @@
+/*-------------------------------Declare nos variables-----------------------------------------------*/
 var express = require('express')
 var app = express()
 app.use(express.urlencoded({ extended: true }))
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017";
+app.set('view engine','ejs');
+app.use(express.static('./public'));
 
 /*-------------------------------------------Students sans Async---------------------------------------------*/
 
@@ -16,7 +19,7 @@ app.post("/students",function(req, res){
     
         
     })
-    res.send("test")
+    res.redirect('/students')
 
 }
 )
@@ -28,7 +31,9 @@ app.get("/students",function(req, res){
             var dbo = db.db("generator");
             dbo.collection("students").find().toArray(function(err,result){
                 if (err) throw err
-                res.send(result)
+                //res.send(result)
+                console.log(result)
+                res.render('students',{data:result});// A partir de la home page, va chercher la page students
 
             });   
         })
@@ -57,11 +62,11 @@ app.delete("/students/:name",function(req, res){
 
 async function Group(){
 
-    const client = new MongoClient(url,{ useUnifiedTopology: true })
+    const client = new MongoClient(url,{ useUnifiedTopology: true }) //Objet de mango client//
     try{    
         await client.connect()
-        const db = client.db('generator')
-        const groups = await db.collection('groups')
+        const db = client.db('generator')// .db qui permet de recuperer la base de donnee (generator)
+        const groups = await db.collection('groups')// va cherche la collection "group" dans db
 
         app.post("/groups", async function(req,res) {
            groups.insertOne(req.body)
@@ -71,7 +76,8 @@ async function Group(){
         
         app.get("/groups", async function(req,res) {
             var trouve = await groups.find().toArray()
-            res.send(trouve)   
+            //res.send() 
+            res.render('groups', {data:trouve})  
         })
         
         app.get("/groups/:name",async function(req,res){
