@@ -8,17 +8,18 @@ var url = "mongodb://localhost:27017";
 
 /*-------------------------------------------Students sans Async---------------------------------------------*/
 
-app.post("/students",function(req, res){
+app.post("/addstudents",function(req, res){
 
 
     MongoClient.connect(url, function(err,db){
         if (err) throw err;
-        var dbo = db.db("generator");
+        var dbo = db.db("generator")
+        console.log(req.body)
         dbo.collection("students").insertOne(req.body);
     
         
     })
-    res.send("test")
+    res.send()
 
 }
 )

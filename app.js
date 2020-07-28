@@ -10,16 +10,22 @@ const fetch = require('node-fetch')
 
 /*-------------------------------------------Students sans Async---------------------------------------------*/
 
-app.post("/students",function(req, res){
+app.post("/students",async function(req, res){
+console.log(req.body)
+await fetch('http://localhost:3000/addstudents' ,{
 
+method: 'post',
+body: req.body,
+headers :{'Content-type': 'application/json'},
 
-  
+})
+ 
     res.redirect('/students')
 
 })
 
 app.get("/students",async function(req, res){
-const appstudents = await fetch('https://localhost:3000/getstudents')
+const appstudents = await fetch('http://localhost:3000/getstudents')
 const apidata = await appstudents.json()
 console.log(apidata);
     
@@ -27,9 +33,6 @@ console.log(apidata);
 
 });   
     
-
-
-
 /*---------------------------------------------GROUPS avec Async---------------------------------------*/
 
 
