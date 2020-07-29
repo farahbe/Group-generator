@@ -45,9 +45,33 @@ async function Group(){
         const groups = await db.collection('groups')// va cherche la collection "group" dans db
 
         app.post("/groups", async function(req,res) {
-           groups.insertOne(req.body)
-            res.send()
-            
+         const apidata = await fetch('http://localhost:3000/getstudents')
+         const students = await apidata.json()
+        
+         const names = [...students].map(elm => elm.name)  
+         const members = req.body.mm
+         const grparr = []
+         
+         for(let i=0; i < students.length / members; i++){
+           if(names.length >= members){
+             let mmbrarr = []
+             for(let i=0; i < members; i++){
+               const random = names[Math.floor(Math.random() * names.length)]
+               mmbrarr.push(random)
+               names.splice(names.indexOf(random), 1)
+             }  
+             grparr.push([...mmbrarr])
+             mmbrarr = []
+           } else {
+             grparr.push([...names])
+           }
+         }
+         await fetch('http://localhost:3000/addgroups', {
+           method: 'post',
+           body: JSON.stringify({name: 'projectName', groupmmbr: grparr}),
+           headers: {'Content-Type': 'application/json'},
+         })
+         res.redirect('/groups')
         })
         
         app.get("/groups", async function(req,res) {
