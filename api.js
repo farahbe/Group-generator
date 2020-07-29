@@ -67,7 +67,9 @@ async function Group(){
         const groups = await db.collection('groups')// va cherche la collection "group" dans db
 
         app.post("/groups", async function(req,res) {
-           groups.insertOne(req.body)
+           groups.insertOne({name: 'group1',
+      groupmmbr: [["name8","name11","name6","name3"],["name5","name4","name7","name14"],["saan","name13","name12","name9"],["name1","name2"]]
+    })
             res.send()
             
         })
