@@ -1,6 +1,7 @@
 /*-------------------------------Declare nos variables-----------------------------------------------*/
 var express = require('express')
 var app = express()
+app.use (express.json())
 app.use(express.urlencoded({ extended: true }))
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017";
@@ -13,8 +14,7 @@ app.post("/addstudents",function(req, res){
 
     MongoClient.connect(url, function(err,db){
         if (err) throw err;
-        var dbo = db.db("generator")
-        console.log(req.body)
+        var dbo = db.db("generator");
         dbo.collection("students").insertOne(req.body);
     
         
@@ -66,13 +66,13 @@ async function Group(){
         const db = client.db('generator')// .db qui permet de recuperer la base de donnee (generator)
         const groups = await db.collection('groups')// va cherche la collection "group" dans db
 
-        app.post("/groups", async function(req,res) {
+        app.post("/addgroups", async function(req,res) {
            groups.insertOne(req.body)
             res.send()
             
         })
         
-        app.get("/groups", async function(req,res) {
+        app.get("/getsgroups", async function(req,res) {
             var trouve = await groups.find().toArray()
             res.send(trouve)   
         })

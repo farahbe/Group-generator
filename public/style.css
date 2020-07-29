@@ -35,6 +35,9 @@ header nav {
 
 header nav a {
   color: whitesmoke;
+  text-decoration: none;
+  margin: 20px;
+  font-family: 'Delius', cursive;
 }
 
 header nav h4 {
